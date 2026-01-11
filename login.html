@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Aftab Gallery</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Aftab Gallery</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Login Section -->
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Welcome Back</h2>
+            <p class="auth-subtitle">Login to your account</p>
+            <form class="auth-form"
+                onsubmit="event.preventDefault(); alert('Logged in successfully!'); window.location.href='index.html';">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-footer">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="auth-submit-btn">Login</button>
+            </form>
+            <p class="auth-switch">Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="copyright">
+            <p>&copy; 2026 Aftab Gallery. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
