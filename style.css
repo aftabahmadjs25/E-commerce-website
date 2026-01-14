@@ -259,6 +259,125 @@ nav {
     background-color: #e5c14d;
 }
 
+/* Brands Section - Minimalist & Professional */
+.brands-section {
+    padding: 2.5rem 0;
+    background-color: #f8fafc;
+    /* Subtle tint */
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.brands-subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.brands-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fading edges effect - Softer */
+.brands-marquee::before,
+.brands-marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 15rem;
+    height: 100%;
+    z-index: 2;
+}
+
+.brands-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, #f8fafc, transparent);
+}
+
+.brands-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, #f8fafc, transparent);
+}
+
+.brands-track {
+    display: flex;
+    width: max-content;
+    gap: 6rem;
+    /* Increased spacing */
+    animation: marquee 60s linear infinite;
+    /* Slower 1min loop */
+}
+
+.brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    transition: all 0.5s ease;
+    cursor: default;
+    filter: grayscale(100%);
+    opacity: 0.35;
+    /* Much lighter default */
+}
+
+.brand-item i {
+    font-size: 2.2rem;
+    /* Uniform smaller size */
+}
+
+.brand-text {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    font-family: sans-serif;
+}
+
+.brand-item:hover {
+    filter: grayscale(0%);
+    opacity: 0.8;
+    color: var(--primary-color);
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 3rem));
+        /* Offset half of the track */
+    }
+}
+
+/* Pause animation on hover */
+.brands-marquee:hover .brands-track {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+
+    .brands-marquee::before,
+    .brands-marquee::after {
+        width: 5rem;
+    }
+
+    .brands-track {
+        gap: 3rem;
+    }
+
+    .brand-item i {
+        font-size: 1.8rem;
+    }
+}
+
 /* Products Section */
 .products {
     max-width: 1200px;
