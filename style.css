@@ -261,9 +261,9 @@ nav {
 
 /* Brands Section - Minimalist & Professional */
 .brands-section {
-    padding: 2.5rem 0;
+    padding: 4rem 0 3rem;
+    /* Increased top padding for tooltips */
     background-color: #f8fafc;
-    /* Subtle tint */
     border-top: 1px solid #f1f5f9;
     border-bottom: 1px solid #f1f5f9;
     overflow: hidden;
@@ -276,25 +276,29 @@ nav {
     text-transform: uppercase;
     letter-spacing: 4px;
     color: #94a3b8;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+    /* More space for tooltips */
     font-weight: 700;
 }
 
 .brands-marquee {
     width: 100%;
-    overflow: hidden;
+    /* Removed overflow: hidden so tooltips can "pop" up */
     position: relative;
+    padding-top: 20px;
+    /* Internal clearance */
 }
 
-/* Fading edges effect - Softer */
+/* Fading edges effect - Adjusted to not cover pop-ups */
 .brands-marquee::before,
 .brands-marquee::after {
     content: "";
     position: absolute;
-    top: 0;
+    top: -20px;
     width: 15rem;
-    height: 100%;
-    z-index: 2;
+    height: calc(100% + 40px);
+    z-index: 5;
+    pointer-events: none;
 }
 
 .brands-marquee::before {
@@ -321,11 +325,67 @@ nav {
     align-items: center;
     justify-content: center;
     color: #64748b;
-    transition: all 0.5s ease;
-    cursor: default;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy transition */
+    cursor: pointer;
+    /* Changed to pointer */
     filter: grayscale(100%);
     opacity: 0.35;
-    /* Much lighter default */
+    position: relative;
+    /* For absolute tooltip */
+}
+
+/* Tooltip Styling - Moved to TOP and added Scale */
+.brand-item::after {
+    content: attr(data-brand);
+    position: absolute;
+    top: -45px;
+    /* Positioned above */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px) scale(0.5);
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip Arrow - Moved to Top */
+.brand-item::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    border: 6px solid transparent;
+    border-top-color: var(--primary-color);
+    /* Arrow pointing down */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.brand-item:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    color: var(--primary-color);
+    transform: scale(1.25);
+    /* Logo itself pops up */
+}
+
+.brand-item:hover::after,
+.brand-item:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0) scale(1);
 }
 
 .brand-item i {
