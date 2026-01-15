@@ -707,34 +707,42 @@ footer {
 
     nav {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
     }
 
     .logo {
         font-size: 1.3rem;
         order: 1;
+        flex: 0 0 auto;
+        margin-right: 0rem;
     }
 
     .hamburger-menu {
         display: block;
-        order: 2;
+        order: 3;
         background: transparent;
         /* Ensure no white background */
         padding: 5px;
+        margin-left: 1rem;
     }
 
     .header-actions {
-        order: 3;
-        width: 100%;
+        order: 2;
+        flex: 1 1 auto;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        gap: 0.5rem;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+        gap: 0.8rem;
+        min-width: 0;
+        margin-left: 10rem;
+        /* Added margin from logo */
+        /* Allow container to shrink */
     }
 
     /* Hide auth buttons in the main header on mobile */
@@ -758,18 +766,31 @@ footer {
         text-align: center;
     }
 
-    /* Expand search bar on mobile since it's on its own row */
+    /* Adjust search bar for top-row placement on mobile */
     .search-container {
-        flex-grow: 1;
-        width: auto;
+        flex: 1 1 auto;
         max-width: none;
         background: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.2);
+        margin-right: 0.5rem;
     }
 
     .search-container input {
         width: 100%;
-        font-size: 0.9rem;
+        min-width: 50px;
+        font-size: 0.85rem;
+    }
+
+    .cart-icon {
+        flex: 0 0 auto;
+    }
+
+    .hamburger-menu {
+        flex: 0 0 auto;
+        order: 3;
+        background: transparent;
+        padding: 5px;
+        margin-left: 0.5rem;
     }
 
     .auth-buttons {
